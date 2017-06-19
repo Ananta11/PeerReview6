@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VM-9A-8Bq">
+                                <rect key="frame" x="18" y="20" width="42" height="30"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PuS-ZJ-awf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFk-pl-gDM">
+                                <rect key="frame" x="309" y="20" width="55" height="30"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedLogoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IkV-Lh-xpD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-5N-uBN">
+                                <rect key="frame" x="161" y="629" width="53" height="30"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedRefreshButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qs0-L3-sjg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_4238.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="T4o-Jb-Vd8">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="T4o-Jb-Vd8" secondAttribute="height" multiplier="1:1" id="zwq-lK-5Cu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="T4o-Jb-Vd8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DbO-yv-EFO"/>
+                            <constraint firstItem="1VM-9A-8Bq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FGc-7O-XON"/>
+                            <constraint firstItem="gFk-pl-gDM" firstAttribute="centerY" secondItem="1VM-9A-8Bq" secondAttribute="centerY" id="Pkc-pX-DZr"/>
+                            <constraint firstItem="T4o-Jb-Vd8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QVR-Vu-hZp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pbw-5N-uBN" secondAttribute="bottom" constant="8" id="V0I-SZ-FZ3"/>
+                            <constraint firstItem="pbw-5N-uBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xyc-mG-AWO"/>
+                            <constraint firstAttribute="trailing" secondItem="T4o-Jb-Vd8" secondAttribute="trailing" id="ebI-jG-0Qb"/>
+                            <constraint firstItem="T4o-Jb-Vd8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kEj-oQ-emz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gFk-pl-gDM" secondAttribute="trailing" constant="-5" id="nMx-nZ-flS"/>
+                            <constraint firstItem="1VM-9A-8Bq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="2" id="qeq-W0-yJq"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="LoginButton" destination="1VM-9A-8Bq" id="yDe-Jn-Bdw"/>
+                        <outlet property="LogoutButton" destination="gFk-pl-gDM" id="aFm-CJ-tS2"/>
+                        <outlet property="RefreshButton" destination="pbw-5N-uBN" id="ZtE-iq-ykm"/>
+                        <outlet property="UIImageView" destination="T4o-Jb-Vd8" id="D7B-Ox-m2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IMG_4238.JPG" width="574" height="574"/>
+    </resources>
+    <color key="tintColor" red="0.21571063995361328" green="0.34746944904327393" blue="0.53781896829605103" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

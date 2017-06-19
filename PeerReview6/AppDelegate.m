@@ -7,17 +7,38 @@
 //
 
 #import "AppDelegate.h"
-
+#import "NXOAuth2.h"
 @interface AppDelegate ()
-
+@property (atomic) NSString *incomingRedirect;
+@property (atomic) NSString *outGoingRedirect;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.outGoingRedirect =@"http://djp3.westmont.edu/classes/2015-coursera-live/redirect.php/scheme/t.co";
+    self.incomingRedirect =@"scheme://t.co";
+    
+    [[NXOAuth2AccountStore sharedStore] setClientID:@"b06c90627ca847daa55f5f1b6188583f"
+                                             secret:@"efc5c89e55f94a91b4e11adaea21cbd4"
+                                   authorizationURL:[NSURL URLWithString:@"https://api.instagram.com/oauth/authorize"]
+                                           tokenURL:[NSURL URLWithString:@"https://api.instagram.com/oauth/access_token"]
+                                        redirectURL:[NSURL URLWithString: self.outGoingRedirect]
+                                     forAccountType:@"Instagram"];
     return YES;
+}
+
+-(BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    if([self.incomingRedirect containsString:[url scheme]] && [self.incomingRedirect containsString:[url host]])
+    {
+        NSURL * constructed = [NSURL URLWithString:[NSString stringWithFormat: @"%@?%@",self.outGoingRedirect, [url query]]];
+        return [[NXOAuth2AccountStore sharedStore] handleRedirectURL:constructed];
+    }
+    else
+    {
+        return [[NXOAuth2AccountStore sharedStore] handleRedirectURL:url];
+    }
 }
 
 
